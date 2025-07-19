@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Header = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <header className="hero-section">
       <nav className="navbar">
@@ -13,6 +16,11 @@ const Header = () => {
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li>
+            <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+              {isDarkMode ? <FaSun /> : <FaMoon />}
+            </button>
+          </li>
         </ul>
       </nav>
       
